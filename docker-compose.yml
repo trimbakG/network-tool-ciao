@@ -1,0 +1,23 @@
+version: "3"
+services:
+  ciao:
+    image: brotandgames/ciao
+    container_name: ciao
+    ports:
+      - '8090:3000'
+    environment:
+      - SECRET_KEY_BASE=dlynuyiphkzmcbwk
+      - SMTP_ADDRESS=smtp.yandex.com
+      - SMTP_EMAIL_FROM=alert@vojon.co
+      - SMTP_EMAIL_TO=alert@vojon.co
+      - SMTP_PORT=465
+      - SMTP_AUTHENTICATION=plain
+      - SMTP_DOMAIN=smtp.yandex.com
+      - SMTP_ENABLE_STARTTLS_AUTO=true
+      - SMTP_USERNAME=alert@vojon.co
+      - SMTP_PASSWORD=dlynuyiphkzmcbwk
+      - BASIC_AUTH_USERNAME=admin
+      - BASIC_AUTH_PASSWORD=Vojon@1234
+
+    volumes:
+      - /opt/ciao/data:/app/db/sqlite/
